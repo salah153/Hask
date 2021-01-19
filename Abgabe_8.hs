@@ -1,7 +1,6 @@
 isMatrix :: [[Int]] -> Bool
 isMatrix [] = False
 isMatrix [[]] = False
-isMatrix [x0] = True
 isMatrix (x0 : x1 : xs) = length x0 == length x1 && isMatrix (x1 : xs)
 
 spalten :: [[Int]] -> Int
@@ -16,7 +15,8 @@ dimensions x
   | otherwise = (zeilen x, spalten x)
 
 isQuadratic :: [[Int]] -> Bool
-isQuadratic x = spalten x == zeilen x
+isQuadratic x | not (isMatrix) = False 
+| otherwise = spalten x == zeilen x
 
 getRow :: [[Int]] -> Int -> [Int]
 getRow x i
