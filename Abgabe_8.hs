@@ -45,14 +45,14 @@ trav (x : xs)
   | otherwise = transposer (x : xs) (length x)
 
 setInRow :: [Int] -> Int -> Int -> [Int]
-setInRow [] j a = []
+setInRow [] _ _ = []
 setInRow (x : xs) j a
   | j /= 1 = x : setInRow xs (j -1) a
   | j == 1 = a : setInRow xs (j -1) a
   | otherwise = []
 
 setEntry :: [[Int]] -> Int -> Int -> Int -> [[Int]]
-setEntry [] i j a = []
+setEntry [] _ _ _ = []
 setEntry (x : xs) i j a
   | isMatrix (x : xs) && i /= 1 = x : setEntry xs (i -1) j a
   | isMatrix (x : xs) && i == 1 = setInRow x j a : setEntry xs (i -1) j a
