@@ -15,8 +15,9 @@ dimensions x
   | otherwise = (zeilen x, spalten x)
 
 isQuadratic :: [[Int]] -> Bool
-isQuadratic x | not (isMatrix) = False 
-| otherwise = spalten x == zeilen x
+isQuadratic x
+  | not (isMatrix) = False
+  | otherwise = spalten x == zeilen x
 
 getRow :: [[Int]] -> Int -> [Int]
 getRow x i
